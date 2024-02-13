@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 )
-
+s
 func ExibeTodosOsAlunos(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"id":   "1",
