@@ -40,3 +40,11 @@ e depois subi o docker de novo
 se reiniciar o pc tem que derrubar a instancia local e a "remota"
 service docker restart
 sudo systemctl stop postgresql
+
+
+12-
+Instalamos o Gorm para não escrever código sql, facilitando a comunicação da aplicação com o banco de dados;
+
+Conectamos a API com banco de dados e realizamos uma migração com base na struct de aluno;
+
+Alteramos o controle para exibir os alunos registrados no banco de dados!
