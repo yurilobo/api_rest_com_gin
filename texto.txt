@@ -13,3 +13,5 @@ a principio comeco com a porta 8080 podendo fazer outras declaraoes de portas
 
 r := gin.Default()
 	r.Run("5000")ex 5000
+
+6-funcao para criar os alunos, chamar essa fuçâo na main
