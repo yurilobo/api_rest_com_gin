@@ -1,0 +1,15 @@
+1 cria o arquivo go mode
+go mod init api_com_gin
+
+2-baixa o gin
+go get -u github.com/gin-gonic/gin
+
+3-cria o arquivo main
+
+4-inicia o servidor com o gin
+
+5- com o trecho de codigo abaixo consigo facilmento selecionar as portas que vou ultilizar para abrir o servidor
+a principio comeco com a porta 8080 podendo fazer outras declaraoes de portas
+
+r := gin.Default()
+	r.Run("5000")ex 5000
