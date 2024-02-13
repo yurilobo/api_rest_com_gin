@@ -16,10 +16,5 @@ r := gin.Default()
 
 6-funcao para criar os alunos, chamar essa fuçâo na main
 
-7- Ao final da aula 1. o que aprendi
-
-Modularizamos nosso código criando pacotes de controles e rotas, tornando nosso código mais fácil de manter e editar;
-
-Aprendemos como pegar informações passadas por parâmetros e retornar uma mensagem personalizada;
-
-Criamos a struct de aluno, que vamos disponibilizar como recurso da nossa API.
+7- modularizando o codigo
+-
