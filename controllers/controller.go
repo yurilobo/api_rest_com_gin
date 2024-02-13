@@ -9,7 +9,11 @@ import (
 )
 
 func ExibeTodosOsAlunos(c *gin.Context) {
-	c.JSON(200, models.Alunos)
+
+	//exibe uma lista de alunos
+	var alunos []models.Aluno
+	database.DB.Find(&alunos)
+	c.JSON(200, alunos)
 }
 func Saldacao(c *gin.Context) {
 	nome := c.Params.ByName("nome")
