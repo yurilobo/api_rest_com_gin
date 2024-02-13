@@ -24,3 +24,19 @@ Modularizamos nosso código criando pacotes de controles e rotas, tornando nosso
 Aprendemos como pegar informações passadas por parâmetros e retornar uma mensagem personalizada;
 
 Criamos a struct de aluno, que vamos disponibilizar como recurso da nossa API.
+
+8- quando rodei o arquivo do docker compose tive problemas para subir o servidor, poiis a porta 5432 já estava sendo usada
+porem nao era uso local, talvez algum outro docker compose que usei
+mudei a porta para 5433 e devo aprender a matar a instancia de do postgres 
+-nao funciou
+
+10-uso do docker-compose exec postgres sh
+ e do 
+hostname -i
+
+11- para subir o postgress direitinho tive que usar
+service docker restart
+e depois subi o docker de novo
+se reiniciar o pc tem que derrubar a instancia local e a "remota"
+service docker restart
+sudo systemctl stop postgresql
