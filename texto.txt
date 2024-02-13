@@ -48,3 +48,9 @@ Instalamos o Gorm para não escrever código sql, facilitando a comunicação da
 Conectamos a API com banco de dados e realizamos uma migração com base na struct de aluno;
 
 Alteramos o controle para exibir os alunos registrados no banco de dados!
+
+13-novo curso validação  testes e paginas em html
+
+uso do "gopkg.in/validator.v2"
+go get gopkg.in/validator.v2
+
