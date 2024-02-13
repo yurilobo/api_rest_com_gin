@@ -21,6 +21,12 @@ func Saldacao(c *gin.Context) {
 		"API diz: ": " E ai " + nome + ", tudo beleza?",
 	})
 }
+func BuscaAlunoPorId(c *gin.Context) {
+	var aluno models.Aluno
+	id := c.Params.ByName("id")
+	database.DB.First(&aluno, id)
+	c.JSON(http.StatusOK, aluno)
+}
 
 func CriaNovoAluno(c *gin.Context) {
 	var aluno models.Aluno

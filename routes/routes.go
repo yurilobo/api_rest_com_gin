@@ -11,5 +11,6 @@ func HandleRequest() {
 	r.GET("/alunos", controllers.ExibeTodosOsAlunos)
 	r.GET("/:nome", controllers.Saldacao)
 	r.POST("/alunos", controllers.CriaNovoAluno)
+	r.GET("/alunos/:id", controllers.BuscaAlunoPorId)
 	r.Run() //
 }
