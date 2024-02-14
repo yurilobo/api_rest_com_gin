@@ -61,3 +61,12 @@ Aplicamos essa validação no controller no momento que criamos ou editamos um a
 
 15-testes com go
 -go testes
+16-
+https://github.com/stretchr/testify
+go get github.com/stretchr/testify
+
+17- aprendi
+Realizamos um teste no Postman que verifica o statusCode de uma resposta;
+Criamos nosso primeiro teste em Go, o TestFalhador;
+Escrevemos um teste que verifica o endpoint de Saudação da API;
+Instalando o assert e alteramos o código verificando o corpo da resposta.
