@@ -54,3 +54,10 @@ Alteramos o controle para exibir os alunos registrados no banco de dados!
 uso do "gopkg.in/validator.v2"
 go get gopkg.in/validator.v2
 
+14-o que fiz
+Carregamos o projeto base e criamos a imagem do banco de dados no Docker;
+Criamos nossas validações na struct de Aluno, garantindo que um campo não fique em branco e tenha uma quantidade específica de caracteres;
+Aplicamos essa validação no controller no momento que criamos ou editamos um aluno.
+
+15-testes com go
+-go testes
