@@ -4,10 +4,12 @@ import (
 	"api_com_gin/controllers"
 	"api_com_gin/database"
 	"api_com_gin/models"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
+	"strconv"
 	"testing"
 
 	"github.com/gin-gonic/gin"
@@ -17,12 +19,13 @@ import (
 var ID int
 
 func SetupDasRotasDeTeste() *gin.Engine {
+	gin.SetMode(gin.ReleaseMode)
 	rotas := gin.Default()
 	return rotas
 }
 
 func CriaAlunoMock() {
-	aluno := models.Aluno{Nome: "Nome do Aluno Teste", CPF: "12345678901", RG: "123456789"}
+	aluno := models.Aluno{Nome: "Nome do Aluno Teste", CPF: "12345678902", RG: "223456789"}
 	database.DB.Create(&aluno)
 	ID = int(aluno.ID)
 }
@@ -61,5 +64,33 @@ func TestListandoTodosOsAlunosHandle(t *testing.T) {
 	r.ServeHTTP(resposta, req)
 	assert.Equal(t, http.StatusOK, resposta.Code)
 	//imprime os alunos que estao no banco de dados
-	fmt.Println(resposta.Body)
+	//fmt.Println(resposta.Body)
+}
+func TestBucaAlunoPorCPFHandler(t *testing.T) {
+	database.ConectaComBancoDeDados()
+	CriaAlunoMock()
+	defer DeletaAlunoMock()
+	r := SetupDasRotasDeTeste()
+	r.GET("/alunos/cpf/:cpf", controllers.BuscaAlunoPorCpf)
+	req, _ := http.NewRequest("GET", "/alunos/cpf/12345678902", nil)
+	resposta := httptest.NewRecorder()
+	r.ServeHTTP(resposta, req)
+	assert.Equal(t, http.StatusOK, resposta.Code)
+}
+func TestBucaAlunoPorIdHandler(t *testing.T) {
+	database.ConectaComBancoDeDados()
+	CriaAlunoMock()
+	defer DeletaAlunoMock()
+	r := SetupDasRotasDeTeste()
+	r.GET("/alunos/:id", controllers.BuscaAlunoPorId)
+	pathDaBusca := "/alunos/" + strconv.Itoa(ID)
+	req, _ := http.NewRequest("GET", pathDaBusca, nil)
+	resposta := httptest.NewRecorder()
+	r.ServeHTTP(resposta, req)
+	var alunoMock models.Aluno
+	json.Unmarshal(resposta.Body.Bytes(), &alunoMock)
+	//fmt.Println(alunoMock.Nome)
+	assert.Equal(t, "Nome do Aluno Teste", alunoMock.Nome)
+	assert.Equal(t, "12345678902", alunoMock.CPF)
+
 }
